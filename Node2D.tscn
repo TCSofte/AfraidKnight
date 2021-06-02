@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://rooms/room_1.png" type="Texture" id=1]
 [ext_resource path="res://batenemy.tscn" type="PackedScene" id=2]
@@ -32,7 +32,7 @@
 [ext_resource path="res://objects/barrel_3.png" type="Texture" id=30]
 [ext_resource path="res://objects/barrel_2.png" type="Texture" id=31]
 [ext_resource path="res://objects/chest_2.1.png" type="Texture" id=32]
-[ext_resource path="res://objects/lever_1.png" type="Texture" id=33]
+[ext_resource path="res://objects/skull_north.png" type="Texture" id=33]
 [ext_resource path="res://objects/swords_south.png" type="Texture" id=34]
 [ext_resource path="res://Node22DD.tscn" type="PackedScene" id=35]
 [ext_resource path="res://black-white-border/50-percent.png" type="Texture" id=36]
@@ -47,31 +47,35 @@
 [ext_resource path="res://light.png" type="Texture" id=45]
 [ext_resource path="res://objects/chest_1.2.png" type="Texture" id=46]
 [ext_resource path="res://Candlegraphic/candleflame.png" type="Texture" id=47]
+[ext_resource path="res://enemy1_0.tscn" type="PackedScene" id=48]
+[ext_resource path="res://objects/skull_south.png" type="Texture" id=49]
+[ext_resource path="res://objects/well.png" type="Texture" id=50]
+[ext_resource path="res://objects/lever_2.png" type="Texture" id=51]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 cull_mode = 1
 polygon = PoolVector2Array( -60.9996, 70.8372, -65.6943, 38.7077, -60.9996, -17.2597, -76.0226, -62.8628, -60.0607, -80.4822, 74.207, -78.4093, 83.5963, -60.7899, 70.4512, -18.2961, 73.268, 38.7077, 69.5123, 72.9101 )
 
-[sub_resource type="OccluderPolygon2D" id=7]
+[sub_resource type="OccluderPolygon2D" id=2]
 cull_mode = 1
 polygon = PoolVector2Array( -42.62, 73.9, -33.62, 69.9, -29.62, 56.9, -11.62, 62.9, 11.38, 62.9, 27.38, 56.9, 31.38, 67.9, 41.38, 74.9, 50.38, 69.9, 50.38, 60.9, 44.38, 56.9, 43.38, 45.9, 52.38, 32.9, 51.38, 21.9, 59.38, -13.1, 64.38, -27.1, 55.38, -34.1, 44.38, -43.1, 49.38, -51.1, 44.38, -66.1, 33.38, -62.1, 30.38, -57.1, 10.38, -60.1, 10.38, -66.1, -0.619995, -76.1, -12.62, -65.1, -14.62, -56.1, -27.62, -56.1, -32.62, -63.1, -45.62, -66.1, -47.62, -54.1, -47.62, -46.1, -54.62, -34.1, -64.62, -31.1, -59.62, -18.1, -58.62, -7.09998, -54.62, 2.90002, -50.62, 16.9, -53.62, 25.9, -45.62, 40.9, -49.62, 52.9, -53.62, 63.9 )
 
-[sub_resource type="OccluderPolygon2D" id=2]
+[sub_resource type="OccluderPolygon2D" id=3]
 cull_mode = 1
 polygon = PoolVector2Array( -57.5652, -32.8983, 62.1152, -34.3227, 74.6401, -2.98483, 73.2483, 36.8997, 64.8987, 69.662, -57.5652, 72.511, -67.3066, 35.4753, -67.3066, -4.40927 )
 
-[sub_resource type="OccluderPolygon2D" id=3]
+[sub_resource type="OccluderPolygon2D" id=4]
 cull_mode = 1
 polygon = PoolVector2Array( 29.8862, -22.1588, 39.4214, -10.5047, 43.6592, 6.44675, 37.3025, 22.3387, 26.7078, 38.2307, 16.1133, 44.5874, -2.95703, 43.528, -26.2654, 36.1117, -40.0383, 12.8035, -40.0383, -4.14789, -30.5032, -17.9209, -26.2654, -26.3966, -23.0869, -39.1102, -12.4922, -45.4669, 2.34033, -46.5264, 17.1726, -41.2291, 24.5889, -34.8723 )
 
-[sub_resource type="OccluderPolygon2D" id=4]
+[sub_resource type="OccluderPolygon2D" id=5]
 cull_mode = 1
 polygon = PoolVector2Array( 84.4518, 164.603, -85.4456, 165.547, -83.5578, -18.5081, -76.9507, -54.3753, -61.8487, -93.0742, -52.41, -113.839, -42.9712, -130.829, -34.4764, -156.314, -11.8234, -173.303, 19.3244, -168.584, 41.0335, -134.605, 43.8652, -114.783, 54.2478, -102.513, 56.1355, -90.2426, 63.6866, -61.9263, 75.9569, -38.3295, 85.3957, -17.5642 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 956.765, 10 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 10, 519.555 )
 
 [node name="Node2D" type="Node2D"]
@@ -89,13 +93,26 @@ texture = ExtResource( 7 )
 position = Vector2( 1930.91, -1.89619 )
 texture = ExtResource( 1 )
 
+[node name="room_2" type="Sprite" parent="room_1"]
+position = Vector2( 1930.91, -3861.48 )
+texture = ExtResource( 6 )
+
+[node name="room_11" type="Sprite" parent="room_1"]
+position = Vector2( 1.86865, -3856.42 )
+texture = ExtResource( 21 )
+
 [node name="room_4" type="Sprite" parent="room_1"]
 position = Vector2( 2.84729, -1923.82 )
 texture = ExtResource( 8 )
 
-[node name="room_11" type="Sprite" parent="room_1/room_4"]
-position = Vector2( -0.978638, -1932.6 )
-texture = ExtResource( 21 )
+[node name="room_5" type="Sprite" parent="room_1"]
+position = Vector2( -1927.68, -1923.82 )
+texture = ExtResource( 6 )
+
+[node name="well" type="Sprite" parent="room_1"]
+position = Vector2( -1923.96, -1951.3 )
+scale = Vector2( 0.750121, 1.33433 )
+texture = ExtResource( 50 )
 
 [node name="door_open_east" type="Sprite" parent="room_1"]
 position = Vector2( 816.699, -0.312962 )
@@ -133,7 +150,7 @@ scale = Vector2( 1.44528, 1.01226 )
 texture = ExtResource( 27 )
 
 [node name="door_lock_east" type="Sprite" parent="room_1"]
-position = Vector2( 821.505, -3860.07 )
+position = Vector2( 2753.96, -3860.07 )
 scale = Vector2( 1.008, 2.11 )
 texture = ExtResource( 29 )
 
@@ -152,6 +169,26 @@ position = Vector2( -816.727, -7.31274 )
 scale = Vector2( 1.008, 2.11 )
 texture = ExtResource( 23 )
 
+[node name="door_open_east3" type="Sprite" parent="room_1"]
+position = Vector2( 816.699, -3860.23 )
+scale = Vector2( 1.008, 2.11 )
+texture = ExtResource( 3 )
+
+[node name="door_open_west3" type="Sprite" parent="room_1"]
+position = Vector2( 1115.57, -3861.88 )
+scale = Vector2( 1.008, 2.11 )
+texture = ExtResource( 23 )
+
+[node name="door_open_south3" type="Sprite" parent="room_1"]
+position = Vector2( -1934.35, -1115.56 )
+scale = Vector2( 1.42054, 1.10809 )
+texture = ExtResource( 26 )
+
+[node name="door_open_north4" type="Sprite" parent="room_1"]
+position = Vector2( -1934.95, -830.081 )
+scale = Vector2( 1.44528, 1.01226 )
+texture = ExtResource( 27 )
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.282353, 0.290196, 0.329412, 0.956863 )
 
@@ -159,7 +196,25 @@ color = Color( 0.282353, 0.290196, 0.329412, 0.956863 )
 position = Vector2( 1414.25, 278.552 )
 
 [node name="Node2D3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2454.81, -293.762 )
+position = Vector2( 2354.92, -305.654 )
+
+[node name="Node2D13" parent="." instance=ExtResource( 2 )]
+position = Vector2( -570.533, -1387.83 )
+
+[node name="Node2D14" parent="." instance=ExtResource( 2 )]
+position = Vector2( -475.396, -1321.24 )
+
+[node name="Node2D15" parent="." instance=ExtResource( 2 )]
+position = Vector2( -387.395, -1259.4 )
+
+[node name="Node2D16" parent="." instance=ExtResource( 2 )]
+position = Vector2( 273.804, -774.202 )
+
+[node name="Node2D17" parent="." instance=ExtResource( 2 )]
+position = Vector2( 357.049, -847.933 )
+
+[node name="Node2D18" parent="." instance=ExtResource( 2 )]
+position = Vector2( 452.185, -919.285 )
 
 [node name="knight" parent="." groups=[
 "Player",
@@ -175,7 +230,7 @@ shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 1 )
 
 [node name="chest_11" type="Sprite" parent="."]
-position = Vector2( -51.2031, -312.691 )
+position = Vector2( 577.408, -312.691 )
 scale = Vector2( 0.84532, 0.765799 )
 texture = ExtResource( 10 )
 
@@ -206,7 +261,7 @@ position = Vector2( 1919.62, -1096.9 )
 texture = ExtResource( 19 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="braziers"]
-occluder = SubResource( 7 )
+occluder = SubResource( 2 )
 
 [node name="chest_12" type="Sprite" parent="."]
 position = Vector2( 2497.37, -259.905 )
@@ -214,21 +269,21 @@ scale = Vector2( 0.718579, 0.702026 )
 texture = ExtResource( 46 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="chest_12"]
-occluder = SubResource( 2 )
+occluder = SubResource( 3 )
 
 [node name="pot_1" type="Sprite" parent="."]
 position = Vector2( 2524.75, 308.72 )
 texture = ExtResource( 20 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="pot_1"]
-occluder = SubResource( 3 )
+occluder = SubResource( 4 )
 
 [node name="statue" type="Sprite" parent="."]
 position = Vector2( 266.15, -237.624 )
 texture = ExtResource( 22 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="statue"]
-occluder = SubResource( 4 )
+occluder = SubResource( 5 )
 
 [node name="doordx" parent="." instance=ExtResource( 24 )]
 position = Vector2( 2711.09, 5.65692 )
@@ -429,16 +484,6 @@ texture = ExtResource( 31 )
 position = Vector2( -104.001, 25.8821 )
 texture = ExtResource( 30 )
 
-[node name="chest_21" type="Sprite" parent="."]
-position = Vector2( 1812.2, -2503.96 )
-scale = Vector2( 0.508368, 0.55519 )
-texture = ExtResource( 32 )
-
-[node name="lever_1" type="Sprite" parent="chest_21"]
-position = Vector2( 1438.27, -21.5906 )
-scale = Vector2( 1.12217, 1.253 )
-texture = ExtResource( 33 )
-
 [node name="swords_south" type="Sprite" parent="."]
 position = Vector2( 2120.86, -2595.73 )
 scale = Vector2( 1.0625, 0.71875 )
@@ -525,36 +570,136 @@ position = Vector2( 1132.95, 6.19403 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bound"]
 position = Vector2( 1909.65, -490.383 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="bound"]
 position = Vector2( 1909.65, 500.221 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="bound"]
 position = Vector2( 1052.31, 6.37885 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="bound"]
 position = Vector2( 2789.88, 6.37885 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="bound"]
+position = Vector2( -8.0238, -490.383 )
 shape = SubResource( 6 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="bound"]
+position = Vector2( -8.0238, 500.221 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="bound"]
+position = Vector2( -865.364, 6.37885 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="bound"]
+position = Vector2( 872.206, 6.37885 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="bound"]
+position = Vector2( -8.0238, -1568.01 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="bound"]
+position = Vector2( -8.0238, -577.41 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="bound"]
+position = Vector2( -865.364, -1071.25 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="bound"]
+position = Vector2( 872.206, -1071.25 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="bound"]
 position = Vector2( 3823.65, -490.383 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="bound"]
 position = Vector2( 3823.65, 500.221 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="bound"]
 position = Vector2( 2966.31, 6.37885 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="bound"]
 position = Vector2( 4703.88, 6.37885 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="bound"]
+position = Vector2( 3823.65, -2654.5 )
 shape = SubResource( 6 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="bound"]
+position = Vector2( 3823.65, -1663.9 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="bound"]
+position = Vector2( 2966.31, -2157.74 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="bound"]
+position = Vector2( 4703.88, -2157.74 )
+shape = SubResource( 7 )
 
 [node name="statue2" type="Sprite" parent="bound"]
 position = Vector2( 2172.7, -2237.56 )
 texture = ExtResource( 22 )
+
+[node name="doordx3" parent="." instance=ExtResource( 24 )]
+position = Vector2( 2711.09, -2158.89 )
+
+[node name="doorsx3" parent="." instance=ExtResource( 25 )]
+position = Vector2( 3049.78, -2155.35 )
+
+[node name="Node2D11" parent="." instance=ExtResource( 48 )]
+position = Vector2( 3871.06, -2225.66 )
+
+[node name="skull_north" type="Sprite" parent="."]
+position = Vector2( 3848.28, -2593.88 )
+texture = ExtResource( 33 )
+
+[node name="skull_south" type="Sprite" parent="."]
+position = Vector2( 3848.28, -1740.81 )
+texture = ExtResource( 49 )
+
+[node name="chest_22" type="Sprite" parent="."]
+position = Vector2( 4446.71, -1853.08 )
+scale = Vector2( 0.619255, 0.635809 )
+texture = ExtResource( 32 )
+
+[node name="chest_23" type="Sprite" parent="."]
+position = Vector2( 3247.99, -1853.08 )
+scale = Vector2( 0.619255, 0.635809 )
+texture = ExtResource( 32 )
+
+[node name="chest_24" type="Sprite" parent="."]
+position = Vector2( 3247.99, -2504.77 )
+scale = Vector2( 0.619255, 0.635809 )
+texture = ExtResource( 32 )
+
+[node name="chest_25" type="Sprite" parent="."]
+position = Vector2( 4453.84, -2504.77 )
+scale = Vector2( 0.619255, 0.635809 )
+texture = ExtResource( 32 )
+
+[node name="doorup3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 6.7002, -440.521 )
+
+[node name="Node2D12" parent="." instance=ExtResource( 14 )]
+position = Vector2( -8.97974, -641.581 )
+
+[node name="pot_2" type="Sprite" parent="."]
+position = Vector2( 576.435, -1365.82 )
+texture = ExtResource( 20 )
+
+[node name="lever_2" type="Sprite" parent="."]
+position = Vector2( 623.131, -758.722 )
+scale = Vector2( 0.692591, 0.784797 )
+texture = ExtResource( 51 )
