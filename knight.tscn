@@ -67,6 +67,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 26.5, 53.5 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32.3738, 56.7476 )
@@ -78,11 +79,12 @@ script = ExtResource( 11 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 5
+frame = 1
 speed_scale = 3.0
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -7, 4 )
 shape = SubResource( 2 )
 
 [node name="Position2D" type="Position2D" parent="."]
@@ -93,7 +95,9 @@ script = ExtResource( 42 )
 current = true
 smoothing_enabled = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=[
+"Player",
+]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -6.24988, 3.36359 )

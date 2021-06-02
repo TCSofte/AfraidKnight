@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30.4371, 92.2752 )
+extents = Vector2( 27, 92.2752 )
 
 [node name="Node2D" type="Area2D" groups=[
 "doorsx",

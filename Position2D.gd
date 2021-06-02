@@ -26,7 +26,7 @@ func update_grid_position():
 		return
 	grid_position = new_grid_position
 	jump_to_grid_position()
-	print('grid_position',grid_position)
+	# print('grid_position',grid_position)
 
 
 func calculate_grid_position():

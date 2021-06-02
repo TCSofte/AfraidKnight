@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://rooms/room_1.png" type="Texture" id=1]
 [ext_resource path="res://batenemy.tscn" type="PackedScene" id=2]
@@ -51,6 +51,12 @@
 [ext_resource path="res://objects/skull_south.png" type="Texture" id=49]
 [ext_resource path="res://objects/well.png" type="Texture" id=50]
 [ext_resource path="res://objects/lever_2.png" type="Texture" id=51]
+[ext_resource path="res://Wraith_02.tscn" type="PackedScene" id=52]
+[ext_resource path="res://Minotaur_02.tscn" type="PackedScene" id=53]
+[ext_resource path="res://objects/crate_3.png" type="Texture" id=54]
+[ext_resource path="res://objects/trapdoor_2.png" type="Texture" id=55]
+[ext_resource path="res://objects/brick.png" type="Texture" id=56]
+[ext_resource path="res://doorsxDinamic.tscn" type="PackedScene" id=57]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 cull_mode = 1
@@ -101,6 +107,10 @@ texture = ExtResource( 6 )
 position = Vector2( 1.86865, -3856.42 )
 texture = ExtResource( 21 )
 
+[node name="room_12" type="Sprite" parent="room_1"]
+position = Vector2( 1.86865, -5775.56 )
+texture = ExtResource( 6 )
+
 [node name="room_4" type="Sprite" parent="room_1"]
 position = Vector2( 2.84729, -1923.82 )
 texture = ExtResource( 8 )
@@ -118,11 +128,6 @@ texture = ExtResource( 50 )
 position = Vector2( 816.699, -0.312962 )
 scale = Vector2( 1.008, 2.11 )
 texture = ExtResource( 3 )
-
-[node name="door_open_west" type="Sprite" parent="room_1"]
-position = Vector2( 1115.57, -1.963 )
-scale = Vector2( 1.008, 2.11 )
-texture = ExtResource( 23 )
 
 [node name="door_open_south" type="Sprite" parent="room_1"]
 position = Vector2( 0.639473, -1115.56 )
@@ -189,7 +194,18 @@ position = Vector2( -1934.95, -830.081 )
 scale = Vector2( 1.44528, 1.01226 )
 texture = ExtResource( 27 )
 
+[node name="door_open_south4" type="Sprite" parent="room_1"]
+position = Vector2( 0.639465, -4957.21 )
+scale = Vector2( 1.42054, 1.10809 )
+texture = ExtResource( 26 )
+
+[node name="door_open_north5" type="Sprite" parent="room_1"]
+position = Vector2( 0.0350037, -4671.73 )
+scale = Vector2( 1.44528, 1.01226 )
+texture = ExtResource( 27 )
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0.282353, 0.290196, 0.329412, 0.956863 )
 
 [node name="Node2D2" parent="." instance=ExtResource( 4 )]
@@ -216,12 +232,17 @@ position = Vector2( 357.049, -847.933 )
 [node name="Node2D18" parent="." instance=ExtResource( 2 )]
 position = Vector2( 452.185, -919.285 )
 
+[node name="doorsxDinamic" parent="." instance=ExtResource( 57 )]
+position = Vector2( 3026.83, 1.74893 )
+scale = Vector2( 1, 1.177 )
+
 [node name="knight" parent="." groups=[
 "Player",
 ] instance=ExtResource( 5 )]
 position = Vector2( 1931.51, -35.5589 )
 
 [node name="Light2D" type="Light2D" parent="knight"]
+visible = false
 position = Vector2( 32.7869, -39.8056 )
 scale = Vector2( 0.41981, 0.375358 )
 texture = ExtResource( 44 )
@@ -287,9 +308,6 @@ occluder = SubResource( 5 )
 
 [node name="doordx" parent="." instance=ExtResource( 24 )]
 position = Vector2( 2711.09, 5.65692 )
-
-[node name="doorsx" parent="." instance=ExtResource( 25 )]
-position = Vector2( 3049.78, 9.19403 )
 
 [node name="crate_1" type="Sprite" parent="."]
 position = Vector2( 3233.28, -304.556 )
@@ -484,14 +502,15 @@ texture = ExtResource( 31 )
 position = Vector2( -104.001, 25.8821 )
 texture = ExtResource( 30 )
 
+[node name="skull_west2" type="Sprite" parent="."]
+position = Vector2( 1132.86, -2145.73 )
+scale = Vector2( 1.0625, 0.71875 )
+texture = ExtResource( 18 )
+
 [node name="swords_south" type="Sprite" parent="."]
-position = Vector2( 2120.86, -2595.73 )
+position = Vector2( 2396.99, -2602.46 )
 scale = Vector2( 1.0625, 0.71875 )
 texture = ExtResource( 34 )
-
-[node name="skull_west" type="Sprite" parent="swords_south"]
-position = Vector2( -929.882, 626.087 )
-texture = ExtResource( 18 )
 
 [node name="Node2D5" parent="." instance=ExtResource( 35 )]
 position = Vector2( 3737.41, -266.602 )
@@ -506,10 +525,10 @@ position = Vector2( 3797.01, -266.458 )
 position = Vector2( 3838.02, -327.269 )
 
 [node name="Node2D9" parent="." instance=ExtResource( 35 )]
-position = Vector2( 3285.06, 310.542 )
+position = Vector2( 4294.14, 243.27 )
 
 [node name="Node2D10" parent="." instance=ExtResource( 35 )]
-position = Vector2( 3340.22, 268.115 )
+position = Vector2( 4356.02, 190.753 )
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.866667 )
@@ -584,6 +603,22 @@ shape = SubResource( 7 )
 position = Vector2( 2789.88, 6.37885 )
 shape = SubResource( 7 )
 
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="bound"]
+position = Vector2( 1909.65, -3641.81 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="bound"]
+position = Vector2( 1909.65, -2829.2 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="bound"]
+position = Vector2( 1211.31, -3229.05 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="bound"]
+position = Vector2( 2630.88, -3233.05 )
+shape = SubResource( 7 )
+
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="bound"]
 position = Vector2( -8.0238, -490.383 )
 shape = SubResource( 6 )
@@ -592,12 +627,20 @@ shape = SubResource( 6 )
 position = Vector2( -8.0238, 500.221 )
 shape = SubResource( 6 )
 
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="bound"]
+position = Vector2( -8.0238, 112.458 )
+shape = SubResource( 6 )
+
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="bound"]
 position = Vector2( -865.364, 6.37885 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="bound"]
 position = Vector2( 872.206, 6.37885 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="bound"]
+position = Vector2( -183.019, 6.37885 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D17" type="CollisionShape2D" parent="bound"]
@@ -625,7 +668,7 @@ position = Vector2( 3823.65, 500.221 )
 shape = SubResource( 6 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="bound"]
-position = Vector2( 2966.31, 6.37885 )
+position = Vector2( 2967.99, 6.37885 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="bound"]
@@ -703,3 +746,56 @@ texture = ExtResource( 20 )
 position = Vector2( 623.131, -758.722 )
 scale = Vector2( 0.692591, 0.784797 )
 texture = ExtResource( 51 )
+
+[node name="brick" type="Sprite" parent="."]
+position = Vector2( 2020.17, -3367.9 )
+scale = Vector2( 0.566957, 0.608903 )
+texture = ExtResource( 56 )
+
+[node name="brick2" type="Sprite" parent="."]
+position = Vector2( 2090.09, -3306.46 )
+scale = Vector2( 0.566957, 0.608903 )
+texture = ExtResource( 56 )
+
+[node name="brick3" type="Sprite" parent="."]
+position = Vector2( 2113.4, -3376.38 )
+scale = Vector2( 0.566957, 0.608903 )
+texture = ExtResource( 56 )
+
+[node name="braziers2" type="Sprite" parent="."]
+position = Vector2( 1904.81, -3541.28 )
+scale = Vector2( 0.566957, 0.608903 )
+texture = ExtResource( 19 )
+
+[node name="Wraith_02" parent="." instance=ExtResource( 52 )]
+position = Vector2( -27.8467, -108.558 )
+
+[node name="Wraith_03" parent="." instance=ExtResource( 52 )]
+position = Vector2( 1340.18, -3531.99 )
+
+[node name="Minotaur_02" parent="." instance=ExtResource( 53 )]
+position = Vector2( 1895.47, -3235.65 )
+
+[node name="Wraith_04" parent="." instance=ExtResource( 52 )]
+position = Vector2( 2496.15, -3529.32 )
+
+[node name="crate_2" type="Sprite" parent="."]
+position = Vector2( 1331.51, -2954.71 )
+scale = Vector2( 0.735134, 0.70308 )
+texture = ExtResource( 12 )
+
+[node name="crate_3" type="Sprite" parent="crate_2"]
+position = Vector2( 123.942, 30.1377 )
+texture = ExtResource( 54 )
+
+[node name="trapdoor_2" type="Sprite" parent="."]
+position = Vector2( 2489.51, -2966.37 )
+scale = Vector2( 0.677195, 0.644086 )
+texture = ExtResource( 55 )
+
+[node name="doorup4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1915.19, -2592.21 )
+
+[node name="Node2D19" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1910.52, -2792.57 )
+[connection signal="killed" from="Node2D10" to="doorsxDinamic" method="_on_Node2D10_killed"]

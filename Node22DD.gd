@@ -103,3 +103,10 @@ func _on_Timer_timeout():
 #		colpito = false
 #	if $AnimatedSprite.animation=="morte":
 #			queue_free()
+
+
+func _on_Area2D_area_entered(area):
+	if area.is_in_group("Player"):
+		print('ene',ene)
+		emit_signal("killed")
+		
