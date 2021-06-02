@@ -37,6 +37,7 @@ func _physics_process(delta):
 		if collision != null and collision.collider.name != "Player" :
 			$AnimatedSprite.play("movimento")
 			direction = direction.rotated(rng.randf_range(PI/4, PI/2))
+			$AnimatedSprite.flip_h = direction.x > 0
 			bounce_countdown = rng.randi_range(2, 5)
 		
 func _on_Timer_timeout():
@@ -51,6 +52,7 @@ func _on_Timer_timeout():
 		elif player_relative_position.length() <= 400 and bounce_countdown == 0:
 			# If player is within range, move toward it
 			direction = player_relative_position.normalized()
+			$AnimatedSprite.flip_h = direction.x > 0
 		elif bounce_countdown == 0:
 			# If player is too far, randomly decide whether to stand still or where to move
 			var random_number = rng.randf()
@@ -58,6 +60,7 @@ func _on_Timer_timeout():
 				direction = Vector2.ZERO
 			elif random_number < 0.1:
 				direction = Vector2.DOWN.rotated(rng.randf() * 2 * PI)
+				$AnimatedSprite.flip_h = direction.x > 0
 		
 		# Update bounce countdown
 		if bounce_countdown > 0:

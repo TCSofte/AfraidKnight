@@ -159,9 +159,9 @@ func _on_AnimatedSprite_animation_finished():
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("doordx"):
 	#	_transition_rect.transition_to()
-		position.x+= 620
+		position.x+= 480
 	if area.is_in_group("doorsx"):
-		position.x-= 620
+		position.x-= 480
 	if area.is_in_group("doorup"):
 		position.y-= 360
 	if area.is_in_group("doordw"):

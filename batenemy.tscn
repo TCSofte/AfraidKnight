@@ -12,11 +12,12 @@
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
-"name": "default",
+"name": "movimento",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 33.3533, 24.2484 )
 
 [node name="Node2D" type="KinematicBody2D"]
 script = ExtResource( 7 )
@@ -24,6 +25,8 @@ script = ExtResource( 7 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
+animation = "movimento"
+frame = 2
 speed_scale = 2.0
 playing = true
 
