@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://rooms/room_1.png" type="Texture" id=1]
 [ext_resource path="res://batenemy.tscn" type="PackedScene" id=2]
@@ -21,7 +21,7 @@
 [ext_resource path="res://objects/braziers.png" type="Texture" id=19]
 [ext_resource path="res://objects/pot_1.png" type="Texture" id=20]
 [ext_resource path="res://rooms/room_11.png" type="Texture" id=21]
-[ext_resource path="res://objects/statue.png" type="Texture" id=22]
+[ext_resource path="res://Seller.tscn" type="PackedScene" id=22]
 [ext_resource path="res://doors/door_open_west.png" type="Texture" id=23]
 [ext_resource path="res://doordx.tscn" type="PackedScene" id=24]
 [ext_resource path="res://doorsx.tscn" type="PackedScene" id=25]
@@ -57,6 +57,8 @@
 [ext_resource path="res://objects/trapdoor_2.png" type="Texture" id=55]
 [ext_resource path="res://objects/brick.png" type="Texture" id=56]
 [ext_resource path="res://doorsxDinamic.tscn" type="PackedScene" id=57]
+[ext_resource path="res://statue.tscn" type="PackedScene" id=58]
+[ext_resource path="res://scene.gd" type="Script" id=59]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 cull_mode = 1
@@ -74,17 +76,14 @@ polygon = PoolVector2Array( -57.5652, -32.8983, 62.1152, -34.3227, 74.6401, -2.9
 cull_mode = 1
 polygon = PoolVector2Array( 29.8862, -22.1588, 39.4214, -10.5047, 43.6592, 6.44675, 37.3025, 22.3387, 26.7078, 38.2307, 16.1133, 44.5874, -2.95703, 43.528, -26.2654, 36.1117, -40.0383, 12.8035, -40.0383, -4.14789, -30.5032, -17.9209, -26.2654, -26.3966, -23.0869, -39.1102, -12.4922, -45.4669, 2.34033, -46.5264, 17.1726, -41.2291, 24.5889, -34.8723 )
 
-[sub_resource type="OccluderPolygon2D" id=5]
-cull_mode = 1
-polygon = PoolVector2Array( 84.4518, 164.603, -85.4456, 165.547, -83.5578, -18.5081, -76.9507, -54.3753, -61.8487, -93.0742, -52.41, -113.839, -42.9712, -130.829, -34.4764, -156.314, -11.8234, -173.303, 19.3244, -168.584, 41.0335, -134.605, 43.8652, -114.783, 54.2478, -102.513, 56.1355, -90.2426, 63.6866, -61.9263, 75.9569, -38.3295, 85.3957, -17.5642 )
-
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 956.765, 10 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 10, 519.555 )
 
-[node name="Node2D" type="Node2D"]
+[node name="scene" type="Node2D"]
+script = ExtResource( 59 )
 
 [node name="room_1" type="Sprite" parent="."]
 position = Vector2( 1922.24, 6.02768 )
@@ -117,6 +116,10 @@ texture = ExtResource( 8 )
 
 [node name="room_5" type="Sprite" parent="room_1"]
 position = Vector2( -1927.68, -1923.82 )
+texture = ExtResource( 6 )
+
+[node name="room_6" type="Sprite" parent="room_1"]
+position = Vector2( -3849.69, -1923.82 )
 texture = ExtResource( 6 )
 
 [node name="well" type="Sprite" parent="room_1"]
@@ -204,44 +207,33 @@ position = Vector2( 0.0350037, -4671.73 )
 scale = Vector2( 1.44528, 1.01226 )
 texture = ExtResource( 27 )
 
+[node name="door_open_east4" type="Sprite" parent="room_1"]
+position = Vector2( -3037.61, -1931.21 )
+scale = Vector2( 1.008, 2.11 )
+texture = ExtResource( 3 )
+
+[node name="door_open_west4" type="Sprite" parent="room_1"]
+position = Vector2( -2738.74, -1932.86 )
+scale = Vector2( 1.008, 2.11 )
+texture = ExtResource( 23 )
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
-color = Color( 0.282353, 0.290196, 0.329412, 0.956863 )
-
-[node name="Node2D2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1414.25, 278.552 )
-
-[node name="Node2D3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2354.92, -305.654 )
-
-[node name="Node2D13" parent="." instance=ExtResource( 2 )]
-position = Vector2( -570.533, -1387.83 )
-
-[node name="Node2D14" parent="." instance=ExtResource( 2 )]
-position = Vector2( -475.396, -1321.24 )
-
-[node name="Node2D15" parent="." instance=ExtResource( 2 )]
-position = Vector2( -387.395, -1259.4 )
-
-[node name="Node2D16" parent="." instance=ExtResource( 2 )]
-position = Vector2( 273.804, -774.202 )
-
-[node name="Node2D17" parent="." instance=ExtResource( 2 )]
-position = Vector2( 357.049, -847.933 )
-
-[node name="Node2D18" parent="." instance=ExtResource( 2 )]
-position = Vector2( 452.185, -919.285 )
+color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
 
 [node name="doorsxDinamic" parent="." instance=ExtResource( 57 )]
 position = Vector2( 3026.83, 1.74893 )
 scale = Vector2( 1, 1.177 )
 
-[node name="knight" parent="." groups=[
-"Player",
-] instance=ExtResource( 5 )]
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Node2D2" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 1412.01, 278.552 )
+
+[node name="knight" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 1931.51, -35.5589 )
 
-[node name="Light2D" type="Light2D" parent="knight"]
+[node name="Light2D" type="Light2D" parent="YSort/knight"]
 visible = false
 position = Vector2( 32.7869, -39.8056 )
 scale = Vector2( 0.41981, 0.375358 )
@@ -249,6 +241,69 @@ texture = ExtResource( 44 )
 texture_scale = 3.0
 shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 1 )
+
+[node name="statue2" parent="YSort" instance=ExtResource( 58 )]
+position = Vector2( 263.285, -234.969 )
+
+[node name="Node2D3" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 1878.41, -218.939 )
+
+[node name="Node2D4" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 2097.64, 113.681 )
+
+[node name="Wraith_02" parent="YSort" instance=ExtResource( 52 )]
+position = Vector2( -27.8467, -108.558 )
+
+[node name="Node2D13" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -570.533, -1387.83 )
+
+[node name="Node2D14" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -475.396, -1321.24 )
+
+[node name="Node2D15" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -387.395, -1259.4 )
+
+[node name="Node2D16" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 273.804, -774.202 )
+
+[node name="Node2D17" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 357.049, -847.933 )
+
+[node name="Node2D18" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 452.185, -919.285 )
+
+[node name="Node2D5" parent="YSort" instance=ExtResource( 35 )]
+position = Vector2( 3737.41, -266.602 )
+
+[node name="Node2D6" parent="YSort" instance=ExtResource( 35 )]
+position = Vector2( 3787.11, -327.269 )
+
+[node name="Node2D7" parent="YSort" instance=ExtResource( 35 )]
+position = Vector2( 3797.01, -266.458 )
+
+[node name="Node2D8" parent="YSort" instance=ExtResource( 35 )]
+position = Vector2( 3838.02, -327.269 )
+
+[node name="Node2D9" parent="YSort" instance=ExtResource( 35 )]
+position = Vector2( 4294.14, 243.27 )
+
+[node name="Node2D10" parent="YSort" instance=ExtResource( 35 )]
+position = Vector2( 4356.02, 190.753 )
+
+[node name="Node2D11" parent="YSort" instance=ExtResource( 48 )]
+position = Vector2( 3871.06, -2225.66 )
+
+[node name="Wraith_03" parent="YSort" instance=ExtResource( 52 )]
+position = Vector2( 1340.18, -3531.99 )
+
+[node name="Minotaur_02" parent="YSort" instance=ExtResource( 53 )]
+position = Vector2( 1895.47, -3235.65 )
+
+[node name="Minotaur_03" parent="YSort" instance=ExtResource( 53 )]
+position = Vector2( 1895.47, -3235.65 )
+
+[node name="Wraith_04" parent="YSort" instance=ExtResource( 52 )]
+position = Vector2( 2496.15, -3529.32 )
 
 [node name="chest_11" type="Sprite" parent="."]
 position = Vector2( 577.408, -312.691 )
@@ -299,13 +354,6 @@ texture = ExtResource( 20 )
 [node name="LightOccluder2D" type="LightOccluder2D" parent="pot_1"]
 occluder = SubResource( 4 )
 
-[node name="statue" type="Sprite" parent="."]
-position = Vector2( 266.15, -237.624 )
-texture = ExtResource( 22 )
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="statue"]
-occluder = SubResource( 5 )
-
 [node name="doordx" parent="." instance=ExtResource( 24 )]
 position = Vector2( 2711.09, 5.65692 )
 
@@ -352,28 +400,6 @@ position = Vector2( 1910.52, -641.581 )
 
 [node name="Node2D4" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1910.52, -1712.76 )
-
-[node name="candleflame" type="Sprite" parent="."]
-position = Vector2( 199.022, -164.277 )
-scale = Vector2( 0.0830937, 0.0690301 )
-texture = ExtResource( 47 )
-
-[node name="Light2D" type="Light2D" parent="candleflame"]
-position = Vector2( -11.3591, -170.917 )
-scale = Vector2( 0.778141, 1.04006 )
-texture = ExtResource( 45 )
-shadow_enabled = true
-
-[node name="candleflame2" type="Sprite" parent="."]
-position = Vector2( 334.94, -164.277 )
-scale = Vector2( 0.0830937, 0.0690301 )
-texture = ExtResource( 47 )
-
-[node name="Light2D" type="Light2D" parent="candleflame2"]
-position = Vector2( -45.3604, -198.264 )
-scale = Vector2( 0.755956, 0.959941 )
-texture = ExtResource( 45 )
-shadow_enabled = true
 
 [node name="candleflame4" type="Sprite" parent="."]
 position = Vector2( 3856.33, 220.389 )
@@ -512,70 +538,24 @@ position = Vector2( 2396.99, -2602.46 )
 scale = Vector2( 1.0625, 0.71875 )
 texture = ExtResource( 34 )
 
-[node name="Node2D5" parent="." instance=ExtResource( 35 )]
-position = Vector2( 3737.41, -266.602 )
+[node name="Seller" parent="." instance=ExtResource( 22 )]
+position = Vector2( -1947.71, -1140.69 )
+frame = 1
 
-[node name="Node2D6" parent="." instance=ExtResource( 35 )]
-position = Vector2( 3787.11, -327.269 )
-
-[node name="Node2D7" parent="." instance=ExtResource( 35 )]
-position = Vector2( 3797.01, -266.458 )
-
-[node name="Node2D8" parent="." instance=ExtResource( 35 )]
-position = Vector2( 3838.02, -327.269 )
-
-[node name="Node2D9" parent="." instance=ExtResource( 35 )]
-position = Vector2( 4294.14, 243.27 )
-
-[node name="Node2D10" parent="." instance=ExtResource( 35 )]
-position = Vector2( 4356.02, 190.753 )
-
-[node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.866667 )
-position = Vector2( 1106.01, -488.057 )
-scale = Vector2( 0.136907, 0.217 )
-texture = ExtResource( 42 )
-
-[node name="Sprite2" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.8 )
-position = Vector2( 2685.18, -488.395 )
-scale = Vector2( 0.181219, 0.217236 )
-texture = ExtResource( 42 )
-
-[node name="100-percent" type="Sprite" parent="."]
-position = Vector2( 1033.19, -492.477 )
+[node name="100-percent3" type="Sprite" parent="."]
+position = Vector2( -2102.41, -896.324 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 37 )
 
-[node name="100-percent2" type="Sprite" parent="."]
-position = Vector2( 1106.61, -492.476 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 37 )
-
-[node name="50-percent" type="Sprite" parent="."]
-position = Vector2( 1189.02, -492.476 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 36 )
-
-[node name="potion_1_empty" type="Sprite" parent="."]
-position = Vector2( 2742.95, -486.205 )
+[node name="potion_1_empty2" type="Sprite" parent="."]
+position = Vector2( -1937.92, -896.028 )
 scale = Vector2( 0.585552, 0.527529 )
 texture = ExtResource( 38 )
 
-[node name="sword" type="Sprite" parent="."]
-position = Vector2( 2826.58, -483.74 )
+[node name="sword2" type="Sprite" parent="."]
+position = Vector2( -1780.55, -892.32 )
 scale = Vector2( 0.60899, 0.507843 )
 texture = ExtResource( 40 )
-
-[node name="scroll_5" type="Sprite" parent="."]
-position = Vector2( 2549.91, -489.455 )
-scale = Vector2( 0.625961, 0.661972 )
-texture = ExtResource( 39 )
-
-[node name="gem_9" type="Sprite" parent="scroll_5"]
-position = Vector2( 162.382, 0.0599976 )
-scale = Vector2( 0.76413, 0.86265 )
-texture = ExtResource( 41 )
 
 [node name="doordx2" parent="." instance=ExtResource( 24 )]
 position = Vector2( 794.26, 2.65692 )
@@ -589,120 +569,113 @@ position = Vector2( 1132.95, 6.19403 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bound"]
 position = Vector2( 1909.65, -490.383 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="bound"]
 position = Vector2( 1909.65, 500.221 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="bound"]
 position = Vector2( 1052.31, 6.37885 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="bound"]
 position = Vector2( 2789.88, 6.37885 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D23" type="CollisionShape2D" parent="bound"]
 position = Vector2( 1909.65, -3641.81 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D24" type="CollisionShape2D" parent="bound"]
 position = Vector2( 1909.65, -2829.2 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D25" type="CollisionShape2D" parent="bound"]
 position = Vector2( 1211.31, -3229.05 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D26" type="CollisionShape2D" parent="bound"]
 position = Vector2( 2630.88, -3233.05 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="bound"]
-position = Vector2( -8.0238, -490.383 )
-shape = SubResource( 6 )
+position = Vector2( -8.0238, -394.383 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="bound"]
 position = Vector2( -8.0238, 500.221 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D22" type="CollisionShape2D" parent="bound"]
 position = Vector2( -8.0238, 112.458 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="bound"]
 position = Vector2( -865.364, 6.37885 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="bound"]
 position = Vector2( 872.206, 6.37885 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D21" type="CollisionShape2D" parent="bound"]
 position = Vector2( -183.019, 6.37885 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D17" type="CollisionShape2D" parent="bound"]
 position = Vector2( -8.0238, -1568.01 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="bound"]
 position = Vector2( -8.0238, -577.41 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D19" type="CollisionShape2D" parent="bound"]
 position = Vector2( -865.364, -1071.25 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D20" type="CollisionShape2D" parent="bound"]
 position = Vector2( 872.206, -1071.25 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="bound"]
 position = Vector2( 3823.65, -490.383 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="bound"]
 position = Vector2( 3823.65, 500.221 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="bound"]
 position = Vector2( 2967.99, 6.37885 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="bound"]
 position = Vector2( 4703.88, 6.37885 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="bound"]
 position = Vector2( 3823.65, -2654.5 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="bound"]
 position = Vector2( 3823.65, -1663.9 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="bound"]
 position = Vector2( 2966.31, -2157.74 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="bound"]
 position = Vector2( 4703.88, -2157.74 )
-shape = SubResource( 7 )
-
-[node name="statue2" type="Sprite" parent="bound"]
-position = Vector2( 2172.7, -2237.56 )
-texture = ExtResource( 22 )
+shape = SubResource( 6 )
 
 [node name="doordx3" parent="." instance=ExtResource( 24 )]
 position = Vector2( 2711.09, -2158.89 )
 
 [node name="doorsx3" parent="." instance=ExtResource( 25 )]
 position = Vector2( 3049.78, -2155.35 )
-
-[node name="Node2D11" parent="." instance=ExtResource( 48 )]
-position = Vector2( 3871.06, -2225.66 )
 
 [node name="skull_north" type="Sprite" parent="."]
 position = Vector2( 3848.28, -2593.88 )
@@ -733,10 +706,10 @@ scale = Vector2( 0.619255, 0.635809 )
 texture = ExtResource( 32 )
 
 [node name="doorup3" parent="." instance=ExtResource( 13 )]
-position = Vector2( 6.7002, -440.521 )
+position = Vector2( 11.7399, -402.723 )
 
 [node name="Node2D12" parent="." instance=ExtResource( 14 )]
-position = Vector2( -8.97974, -641.581 )
+position = Vector2( -8.97974, -581.26 )
 
 [node name="pot_2" type="Sprite" parent="."]
 position = Vector2( 576.435, -1365.82 )
@@ -767,18 +740,6 @@ position = Vector2( 1904.81, -3541.28 )
 scale = Vector2( 0.566957, 0.608903 )
 texture = ExtResource( 19 )
 
-[node name="Wraith_02" parent="." instance=ExtResource( 52 )]
-position = Vector2( -27.8467, -108.558 )
-
-[node name="Wraith_03" parent="." instance=ExtResource( 52 )]
-position = Vector2( 1340.18, -3531.99 )
-
-[node name="Minotaur_02" parent="." instance=ExtResource( 53 )]
-position = Vector2( 1895.47, -3235.65 )
-
-[node name="Wraith_04" parent="." instance=ExtResource( 52 )]
-position = Vector2( 2496.15, -3529.32 )
-
 [node name="crate_2" type="Sprite" parent="."]
 position = Vector2( 1331.51, -2954.71 )
 scale = Vector2( 0.735134, 0.70308 )
@@ -798,4 +759,66 @@ position = Vector2( 1915.19, -2592.21 )
 
 [node name="Node2D19" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1910.52, -2792.57 )
-[connection signal="killed" from="Node2D10" to="doorsxDinamic" method="_on_Node2D10_killed"]
+
+[node name="doordx4" parent="." instance=ExtResource( 24 )]
+position = Vector2( -1112.37, -1077.14 )
+
+[node name="doorsx4" parent="." instance=ExtResource( 25 )]
+position = Vector2( -773.676, -1073.61 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.866667 )
+position = Vector2( 145.073, 53.3066 )
+scale = Vector2( 0.136907, 0.217 )
+texture = ExtResource( 42 )
+
+[node name="Sprite2" type="Sprite" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.8 )
+position = Vector2( 1735.62, 53.307 )
+scale = Vector2( 0.181219, 0.217236 )
+texture = ExtResource( 42 )
+
+[node name="potion_1_empty" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 1791.04, 52.1518 )
+scale = Vector2( 0.585552, 0.527529 )
+texture = ExtResource( 38 )
+
+[node name="sword" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 1870.67, 52.6168 )
+scale = Vector2( 0.60899, 0.507843 )
+texture = ExtResource( 40 )
+
+[node name="gem_9" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 1698.64, 55.9414 )
+scale = Vector2( 0.478316, 0.57105 )
+texture = ExtResource( 41 )
+
+[node name="scroll_5" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 1601, 53.9017 )
+scale = Vector2( 0.625961, 0.661972 )
+texture = ExtResource( 39 )
+
+[node name="100-percent" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 66.6372, 53.8654 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 37 )
+
+[node name="100-percent2" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 140.057, 53.8663 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 37 )
+
+[node name="50-percent" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 222.467, 53.8663 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 36 )
+[connection signal="killed" from="YSort/Node2D10" to="doorsxDinamic" method="_on_Node2D10_killed"]

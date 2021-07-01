@@ -6,7 +6,11 @@ enum States {spada, scettro, rampino}
 var _state : int = States.spada
 var velocity = Vector2()
 var die = false
+var left = false
+var right = false
 var isAttacking = false
+var can_drop_candle = true
+onready var candle = preload("res://candle.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -43,8 +47,8 @@ func get_input():
 			velocity.x += 1
 			#	if isrolling==true:
 			#		velocity.x += 145
-			#	right = true
-			#	left = false
+			right = true
+			left = false
 	
 			
 		if Input.is_action_pressed('ui_left') and isAttacking==false:
@@ -53,8 +57,8 @@ func get_input():
 #			$Exhaust.emitting = false
 #			$Exhaust2.emitting = true
 			velocity.x -= 1
-			#	left = true
-			#	right = false
+			left = true
+			right = false
 
 		if Input.is_action_pressed('ui_down') and isAttacking==false:
 			velocity.y += 1
@@ -84,8 +88,9 @@ func get_input():
 		#		$AnimatedSprite.play("roll")
 		#		isrolling=true
 			
-		#	if Input.is_action_just_pressed('bomb') and can_drop_bomb==true:
-		#		placebomb()	
+		if Input.is_action_just_pressed('candle') and can_drop_candle==true:
+			placecandle()	
+			
 		velocity = velocity.normalized() * speed
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -148,6 +153,7 @@ func _on_AnimatedSprite_animation_finished():
 		if $AnimatedSprite.animation=="Attaccospada":
 		#$Area2D/CollisionShape2D.disabled=true
 			isAttacking=false
+			$Area2D2/CollisionShape2D.disabled = true
 #	if $AnimatedSprite.animation=="roll":
 #		isrolling=false
 #		$Sprite.visible = true
@@ -166,3 +172,22 @@ func _on_Area2D_area_entered(area):
 		position.y-= 360
 	if area.is_in_group("doordw"):
 		position.y+= 360
+
+
+func _on_AnimatedSprite_frame_changed():
+		if $AnimatedSprite.animation=="Attaccospada" and  $AnimatedSprite.get_frame()==6:
+			$Area2D2/CollisionShape2D.disabled =false
+
+func placecandle():
+	# "Muzzle" is a Position2D placed at the barrel of the gun.
+	var b = candle.instance()
+	#b.shoot22($Sprite/mani/Muzzle.global_position)
+	
+	if right == true:
+		b.position  = $Positioncandle.global_position
+	if left == true:
+		b.position  = $Position2D2.global_position
+	get_parent().add_child(b)	
+
+
+

@@ -16,12 +16,11 @@ var last_direction = Vector2(0, 1)
 var bounce_countdown = 0
 var colpito = false
 var killed = false
-
+var movement : Vector2	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_node("../knight")
 	rng.randomize()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -30,21 +29,38 @@ func _ready():
 func _physics_process(delta):
 	
 	if colpito == false and killed == false:
-		var movement = direction * speed * delta
 		
+		movement = direction * speed * delta	
 		var collision = move_and_collide(movement)
-		
-		if  movement.x != 0 and movement.y != 0 :
-			$AnimatedSprite.play("movimento")
-		else  :
-	
-			$AnimatedSprite.play("New Anim")
-	
+		if (!$RayCast2D.is_colliding () and !$RayCast2D2.is_colliding ()):
+			
+				
+			print('!$RayCast2D')
+			if  movement.x != 0 and movement.y != 0 :
+				$AnimatedSprite.play("movimento")
+			else  :
+			
+				$AnimatedSprite.play("New Anim")
+
 		if collision != null and collision.collider.name != "Player" and movement.x != 0 and movement.y != 0 :
 			$AnimatedSprite.play("movimento")
 			direction = direction.rotated(rng.randf_range(PI/4, PI/2))
 			$AnimatedSprite.flip_h = direction.x < 0
 			bounce_countdown = rng.randi_range(2, 5)
+		if ($RayCast2D.is_colliding ()):
+		
+			if ($RayCast2D.get_collider().is_in_group("Player")):
+				print('$RayCast2D.get_collider().')
+				
+				$AnimatedSprite.play("Attacking")
+				
+		if ($RayCast2D2.is_colliding ()):
+		
+			if ($RayCast2D2.get_collider().is_in_group("Player")):
+				print('$RayCast2D.get_collider().')
+				
+				$AnimatedSprite.play("Attacking")
+				
 		
 
 		
@@ -115,3 +131,17 @@ func _on_Timer_timeout():
 #			queue_free()
 
 
+
+
+func _on_Area2D_area_entered(area):
+	if area.is_in_group("Attaccospada") and killed == false:
+		colpito = true
+		$AnimatedSprite.play("Dying")
+		#$AnimatedSprite.play("colpito",true)
+		ene-=1
+		print('ene',ene)
+		if ene<=0:
+			$AnimatedSprite.play("Dying")
+			if killed == false:
+				emit_signal("killed")
+				killed = true

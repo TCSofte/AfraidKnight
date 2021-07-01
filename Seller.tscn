@@ -1,0 +1,27 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://_PNG/3/Seller_03_Animation_000.png" type="Texture" id=1]
+[ext_resource path="res://_PNG/3/Seller_03_Animation_001.png" type="Texture" id=2]
+[ext_resource path="res://_PNG/3/Seller_03_Animation_002.png" type="Texture" id=3]
+[ext_resource path="res://_PNG/3/Seller_03_Animation_003.png" type="Texture" id=4]
+[ext_resource path="res://_PNG/3/Seller_03_Animation_004.png" type="Texture" id=5]
+[ext_resource path="res://_PNG/3/Seller_03_Animation_005.png" type="Texture" id=6]
+[ext_resource path="res://_PNG/3/Seller_03_Animation_006.png" type="Texture" id=7]
+[ext_resource path="res://_PNG/3/Seller_03_Animation_007.png" type="Texture" id=8]
+[ext_resource path="res://_PNG/3/Seller_03_Animation_008.png" type="Texture" id=9]
+[ext_resource path="res://_PNG/3/Seller_03_Animation_009.png" type="Texture" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Seller" type="AnimatedSprite"]
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+frame = 2
+speed_scale = 2.0
+playing = true

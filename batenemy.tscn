@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fluffy flappy bat enemy game character sprite sheets/transparent png/1.png" type="Texture" id=1]
 [ext_resource path="res://fluffy flappy bat enemy game character sprite sheets/transparent png/2.png" type="Texture" id=2]
@@ -19,6 +19,9 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 33.3533, 24.2484 )
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 34.5429, 24.2482 )
+
 [node name="Node2D" type="KinematicBody2D"]
 script = ExtResource( 7 )
 
@@ -26,7 +29,7 @@ script = ExtResource( 7 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
 animation = "movimento"
-frame = 2
+frame = 5
 speed_scale = 2.0
 playing = true
 
@@ -36,4 +39,10 @@ shape = SubResource( 2 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 3 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

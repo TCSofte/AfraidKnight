@@ -34,6 +34,7 @@ shape = SubResource( 1 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "movimento"
+frame = 7
 speed_scale = 2.0
 playing = true
 

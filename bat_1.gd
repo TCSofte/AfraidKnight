@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 
 # Node references
+
 var player
 # onready var Bullet = preload("res://BulletSlime.tscn")
 var ene = 8

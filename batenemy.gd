@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 
 # Node references
+
 var player
 # onready var Bullet = preload("res://BulletSlime.tscn")
 var ene = 8
@@ -104,3 +105,9 @@ func _on_Timer_timeout():
 #	if $AnimatedSprite.animation=="morte":
 #			queue_free()
 
+
+
+func _on_Area2D_area_entered(area):
+	if area.is_in_group("Attaccospada") and killed == false:
+		queue_free()
+		
