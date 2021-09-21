@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 
 # Declare member variables here. Examples:
@@ -8,7 +8,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,9 +17,7 @@ func _ready():
 
 
 func _on_Area2D_area_entered(area):
-	if area.is_in_group("player"):
+	if area.is_in_group("Player"):
 		print("ccbccbcvbcvbcbvcbbvb")
-		$CanvasModulate.visible = true
-		$knight/Light2D.visible = true
-
-
+		$"../CanvasModulate".visible = true
+		$"../knight/Light2D".visible = true
