@@ -2,14 +2,17 @@ extends KinematicBody2D
 
 
 export (int) var speed = 200
-enum States {spada, scettro, rampino}
-var _state : int = States.spada
+enum States {spada, scettro, rampino, death, walking}
+var _stateWeapon : int = States.spada
+onready var state = States.walking
 var velocity = Vector2()
 var die = false
 var left = false
 var right = false
 var isAttacking = false
 var can_drop_candle = true
+var life = 10
+var extra_life = 5
 onready var candle = preload("res://candle.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -67,10 +70,10 @@ func get_input():
 			velocity.y -= 1
 			
 		if Input.is_action_just_pressed('mouse_click') :
-			if _state == States.scettro:
+			if _stateWeapon == States.scettro:
 				$AnimatedSprite.play("Attaccoscettro")
 				$AnimatedSprite.set_frame(0)
-			if _state == States.spada:
+			if _stateWeapon == States.spada:
 				$AnimatedSprite.play("Attaccospada")
 				$AnimatedSprite.set_frame(0)
 				#$Sprite/mani/Area2D4/CollisionShape2D.disabled = false
@@ -95,6 +98,10 @@ func get_input():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 #	pass
+ if life <= 0:
+		die = true
+ if die == true:		
+		$AnimatedSprite.play("Death")
  if die == false:
 		get_input()
 		#if $Sprite/mani/RayCast2D.is_colliding():
@@ -163,6 +170,8 @@ func _on_AnimatedSprite_animation_finished():
 
 
 func _on_Area2D_area_entered(area):
+	if area.is_in_group("Enemy"):
+		life = life - 0.2
 	if area.is_in_group("doordx"):
 	#	_transition_rect.transition_to()
 		position.x+= 480

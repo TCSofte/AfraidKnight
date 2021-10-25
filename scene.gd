@@ -8,18 +8,22 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$CanvasLayer/Sprite.value = $YSort/knight.life
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	print("$YSort/knight.life",$YSort/knight.life)
+	print("$CanvasLayer/Sprite.value",$CanvasLayer/Sprite.value)
+	$CanvasLayer/Sprite.value = $YSort/knight.life
+	
 
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("player"):
-		print("ccbccbcvbcvbcbvcbbvb")
+		print("spawn camera")
 		$CanvasModulate.visible = true
 		$knight/Light2D.visible = true
+	
 
 

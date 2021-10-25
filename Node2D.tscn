@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://rooms/room_1.png" type="Texture" id=1]
 [ext_resource path="res://batenemy.tscn" type="PackedScene" id=2]
@@ -41,7 +41,7 @@
 [ext_resource path="res://png/128px/scroll_5.png" type="Texture" id=39]
 [ext_resource path="res://png/128px/sword.png" type="Texture" id=40]
 [ext_resource path="res://png/128px/gem_9.png" type="Texture" id=41]
-[ext_resource path="res://Speechbubbles/pngs/yellow-tinge/bubble-long.png" type="Texture" id=42]
+[ext_resource path="res://Speechbubbles/pngs/greyscale/yellow-tinge/bubble-long.png" type="Texture" id=42]
 [ext_resource path="res://doors/door_lock_north.png" type="Texture" id=43]
 [ext_resource path="res://luce forte.png" type="Texture" id=44]
 [ext_resource path="res://light.png" type="Texture" id=45]
@@ -60,30 +60,31 @@
 [ext_resource path="res://statue.tscn" type="PackedScene" id=58]
 [ext_resource path="res://scene.gd" type="Script" id=59]
 [ext_resource path="res://Area2D.gd" type="Script" id=60]
+[ext_resource path="res://Speechbubbles/pngs/greyscale/long-small.png" type="Texture" id=61]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 80.9131, 17.35 )
-
-[sub_resource type="OccluderPolygon2D" id=1]
-cull_mode = 1
-polygon = PoolVector2Array( -60.9996, 70.8372, -65.6943, 38.7077, -60.9996, -17.2597, -76.0226, -62.8628, -60.0607, -80.4822, 74.207, -78.4093, 83.5963, -60.7899, 70.4512, -18.2961, 73.268, 38.7077, 69.5123, 72.9101 )
 
 [sub_resource type="OccluderPolygon2D" id=2]
 cull_mode = 1
-polygon = PoolVector2Array( -42.62, 73.9, -33.62, 69.9, -29.62, 56.9, -11.62, 62.9, 11.38, 62.9, 27.38, 56.9, 31.38, 67.9, 41.38, 74.9, 50.38, 69.9, 50.38, 60.9, 44.38, 56.9, 43.38, 45.9, 52.38, 32.9, 51.38, 21.9, 59.38, -13.1, 64.38, -27.1, 55.38, -34.1, 44.38, -43.1, 49.38, -51.1, 44.38, -66.1, 33.38, -62.1, 30.38, -57.1, 10.38, -60.1, 10.38, -66.1, -0.619995, -76.1, -12.62, -65.1, -14.62, -56.1, -27.62, -56.1, -32.62, -63.1, -45.62, -66.1, -47.62, -54.1, -47.62, -46.1, -54.62, -34.1, -64.62, -31.1, -59.62, -18.1, -58.62, -7.09998, -54.62, 2.90002, -50.62, 16.9, -53.62, 25.9, -45.62, 40.9, -49.62, 52.9, -53.62, 63.9 )
+polygon = PoolVector2Array( -60.9996, 70.8372, -65.6943, 38.7077, -60.9996, -17.2597, -76.0226, -62.8628, -60.0607, -80.4822, 74.207, -78.4093, 83.5963, -60.7899, 70.4512, -18.2961, 73.268, 38.7077, 69.5123, 72.9101 )
 
 [sub_resource type="OccluderPolygon2D" id=3]
 cull_mode = 1
-polygon = PoolVector2Array( -57.5652, -32.8983, 62.1152, -34.3227, 74.6401, -2.98483, 73.2483, 36.8997, 64.8987, 69.662, -57.5652, 72.511, -67.3066, 35.4753, -67.3066, -4.40927 )
+polygon = PoolVector2Array( -42.62, 73.9, -33.62, 69.9, -29.62, 56.9, -11.62, 62.9, 11.38, 62.9, 27.38, 56.9, 31.38, 67.9, 41.38, 74.9, 50.38, 69.9, 50.38, 60.9, 44.38, 56.9, 43.38, 45.9, 52.38, 32.9, 51.38, 21.9, 59.38, -13.1, 64.38, -27.1, 55.38, -34.1, 44.38, -43.1, 49.38, -51.1, 44.38, -66.1, 33.38, -62.1, 30.38, -57.1, 10.38, -60.1, 10.38, -66.1, -0.619995, -76.1, -12.62, -65.1, -14.62, -56.1, -27.62, -56.1, -32.62, -63.1, -45.62, -66.1, -47.62, -54.1, -47.62, -46.1, -54.62, -34.1, -64.62, -31.1, -59.62, -18.1, -58.62, -7.09998, -54.62, 2.90002, -50.62, 16.9, -53.62, 25.9, -45.62, 40.9, -49.62, 52.9, -53.62, 63.9 )
 
 [sub_resource type="OccluderPolygon2D" id=4]
 cull_mode = 1
+polygon = PoolVector2Array( -57.5652, -32.8983, 62.1152, -34.3227, 74.6401, -2.98483, 73.2483, 36.8997, 64.8987, 69.662, -57.5652, 72.511, -67.3066, 35.4753, -67.3066, -4.40927 )
+
+[sub_resource type="OccluderPolygon2D" id=5]
+cull_mode = 1
 polygon = PoolVector2Array( 29.8862, -22.1588, 39.4214, -10.5047, 43.6592, 6.44675, 37.3025, 22.3387, 26.7078, 38.2307, 16.1133, 44.5874, -2.95703, 43.528, -26.2654, 36.1117, -40.0383, 12.8035, -40.0383, -4.14789, -30.5032, -17.9209, -26.2654, -26.3966, -23.0869, -39.1102, -12.4922, -45.4669, 2.34033, -46.5264, 17.1726, -41.2291, 24.5889, -34.8723 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 956.765, 10 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 10, 519.555 )
 
 [node name="scene" type="Node2D"]
@@ -95,7 +96,7 @@ scale = Vector2( 0.991996, 0.560775 )
 texture = ExtResource( 6 )
 
 [node name="room_7" type="Sprite" parent="room_1"]
-position = Vector2( -1932.64, -2.90149 )
+position = Vector2( -1934.24, -2.90149 )
 texture = ExtResource( 7 )
 
 [node name="room_1" type="Sprite" parent="room_1"]
@@ -177,7 +178,7 @@ scale = Vector2( 1.008, 2.11 )
 texture = ExtResource( 3 )
 
 [node name="door_open_west2" type="Sprite" parent="room_1"]
-position = Vector2( -816.727, -7.31274 )
+position = Vector2( -816.727, -9.83186 )
 scale = Vector2( 1.008, 2.11 )
 texture = ExtResource( 23 )
 
@@ -228,10 +229,10 @@ scale = Vector2( 1, 1.177 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Node2D2" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 1412.01, 278.552 )
+position = Vector2( 1412.01, 277.885 )
 
 [node name="knight" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 1931.51, -35.5589 )
+position = Vector2( 1894.78, -53.2166 )
 
 [node name="Light2D" type="Light2D" parent="YSort/knight"]
 visible = false
@@ -251,7 +252,7 @@ script = ExtResource( 60 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Area2D"]
 position = Vector2( 1917.78, -687.316 )
-shape = SubResource( 7 )
+shape = SubResource( 1 )
 
 [node name="statue2" parent="YSort" instance=ExtResource( 58 )]
 position = Vector2( 263.285, -234.969 )
@@ -322,7 +323,7 @@ scale = Vector2( 0.84532, 0.765799 )
 texture = ExtResource( 10 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="chest_11"]
-occluder = SubResource( 1 )
+occluder = SubResource( 2 )
 
 [node name="barrel_1" type="Sprite" parent="."]
 position = Vector2( 4422.29, -295.022 )
@@ -348,7 +349,7 @@ position = Vector2( 1919.62, -1096.9 )
 texture = ExtResource( 19 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="braziers"]
-occluder = SubResource( 2 )
+occluder = SubResource( 3 )
 
 [node name="chest_12" type="Sprite" parent="."]
 position = Vector2( 2497.37, -259.905 )
@@ -356,14 +357,14 @@ scale = Vector2( 0.718579, 0.702026 )
 texture = ExtResource( 46 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="chest_12"]
-occluder = SubResource( 3 )
+occluder = SubResource( 4 )
 
 [node name="pot_1" type="Sprite" parent="."]
 position = Vector2( 2524.75, 308.72 )
 texture = ExtResource( 20 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="pot_1"]
-occluder = SubResource( 4 )
+occluder = SubResource( 5 )
 
 [node name="doordx" parent="." instance=ExtResource( 24 )]
 position = Vector2( 2711.09, 5.65692 )
@@ -551,6 +552,7 @@ texture = ExtResource( 34 )
 
 [node name="Seller" parent="." instance=ExtResource( 22 )]
 position = Vector2( -1947.71, -1140.69 )
+frame = 8
 
 [node name="100-percent3" type="Sprite" parent="."]
 position = Vector2( -2102.41, -896.324 )
@@ -579,107 +581,107 @@ position = Vector2( 1132.95, 6.19403 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bound"]
 position = Vector2( 1909.65, -490.383 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="bound"]
 position = Vector2( 1909.65, 500.221 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="bound"]
 position = Vector2( 1052.31, 6.37885 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="bound"]
 position = Vector2( 2789.88, 6.37885 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D23" type="CollisionShape2D" parent="bound"]
 position = Vector2( 1909.65, -3641.81 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D24" type="CollisionShape2D" parent="bound"]
 position = Vector2( 1909.65, -2829.2 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D25" type="CollisionShape2D" parent="bound"]
 position = Vector2( 1211.31, -3229.05 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D26" type="CollisionShape2D" parent="bound"]
 position = Vector2( 2630.88, -3233.05 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="bound"]
 position = Vector2( -8.0238, -394.383 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="bound"]
 position = Vector2( -8.0238, 500.221 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D22" type="CollisionShape2D" parent="bound"]
 position = Vector2( -8.0238, 112.458 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="bound"]
 position = Vector2( -865.364, 6.37885 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="bound"]
 position = Vector2( 872.206, 6.37885 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D21" type="CollisionShape2D" parent="bound"]
 position = Vector2( -183.019, 6.37885 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D17" type="CollisionShape2D" parent="bound"]
 position = Vector2( -8.0238, -1568.01 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="bound"]
 position = Vector2( -8.0238, -577.41 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D19" type="CollisionShape2D" parent="bound"]
 position = Vector2( -865.364, -1071.25 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D20" type="CollisionShape2D" parent="bound"]
 position = Vector2( 872.206, -1071.25 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="bound"]
 position = Vector2( 3823.65, -490.383 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="bound"]
 position = Vector2( 3823.65, 500.221 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="bound"]
 position = Vector2( 2967.99, 6.37885 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="bound"]
 position = Vector2( 4703.88, 6.37885 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="bound"]
 position = Vector2( 3823.65, -2654.5 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="bound"]
 position = Vector2( 3823.65, -1663.9 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="bound"]
 position = Vector2( 2966.31, -2157.74 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="bound"]
 position = Vector2( 4703.88, -2157.74 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="doordx3" parent="." instance=ExtResource( 24 )]
 position = Vector2( 2711.09, -2158.89 )
@@ -785,11 +787,20 @@ __meta__ = {
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+[node name="Sprite" type="TextureProgress" parent="CanvasLayer"]
 modulate = Color( 1, 1, 1, 0.866667 )
-position = Vector2( 145.073, 53.3066 )
-scale = Vector2( 0.136907, 0.217 )
-texture = ExtResource( 42 )
+anchor_right = 0.142
+anchor_bottom = 0.102
+margin_left = 4.0
+margin_right = 250.36
+margin_bottom = 24.84
+rect_scale = Vector2( 0.55, 0.8 )
+max_value = 3.0
+step = 0.2
+texture_progress = ExtResource( 61 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Sprite2" type="Sprite" parent="CanvasLayer"]
 modulate = Color( 1, 1, 1, 0.8 )
@@ -823,7 +834,7 @@ scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 37 )
 
 [node name="100-percent2" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 140.057, 53.8663 )
+position = Vector2( 141.057, 53.8663 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 37 )
 
@@ -831,5 +842,6 @@ texture = ExtResource( 37 )
 position = Vector2( 222.467, 53.8663 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 36 )
+
 [connection signal="area_entered" from="YSort/Area2D" to="YSort/Area2D" method="_on_Area2D_area_entered"]
 [connection signal="killed" from="YSort/Node2D10" to="doorsxDinamic" method="_on_Node2D10_killed"]
